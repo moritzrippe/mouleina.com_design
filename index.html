@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouleina</title>
+    <link rel="icon" href="title.png">
+    <meta name="description" content="mouleina">
+    <!DOCTYPE html>
+<html lang="de">
+    <style>
+        @font-face {
+            font-family: 'Local';
+            src: url('Garamond-Light.ttf') format('truetype');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .logo {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+
+        .text {
+            font-family: 'Local', sans-serif;
+            font-size: 48px;
+            color: black;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <img src="logo.png" alt="Logo" class="logo">
+    <div id="mouleinaText" class="text">mouleina</div>
+
+    <script>
+        const textElement = document.getElementById('mouleinaText');
+        const originalText = 'mouleina';
+        let timeout;
+
+        function shuffleText() {
+            let text = originalText.split('');
+            for (let i = text.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [text[i], text[j]] = [text[j], text[i]];
+            }
+            return text.join('');
+        }
+
+        textElement.addEventListener('click', () => {
+            textElement.textContent = shuffleText();
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                textElement.textContent = originalText;
+            }, 2222); //(2,2 Sekunden)
+        });
+    </script>
+</body>
+</html>
